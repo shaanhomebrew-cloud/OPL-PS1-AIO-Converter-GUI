@@ -1,5 +1,3 @@
-Absolutely. I’d also make a few small cleanup improvements while keeping your existing information and structure intact. Most importantly, I removed **“Developed by Eliminator14 (Pixel)”** from the introduction and kept the attribution in the Credits section.
-
 # OPL PS1 AIO Converter GUI
 
 An all-in-one Windows application for preparing and installing **PlayStation 1 games** for **POPStarter** on the PlayStation 2.
