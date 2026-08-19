@@ -9,96 +9,57 @@ An all-in-one Windows application for preparing and installing **PlayStation 1 g
 * 🎮 Convert PS1 BIN/CUE backups into POPStarter VCD files
 * 📦 Automatic ZIP extraction
 * 💿 Automatic multi-track BIN merging
-* 💾 Install games for USB, MX4SIO, MMCE, exFAT HDD, SMB and APA Internal HDD
+* 💾 Install games for USB, MX4SIO, MMCE, exFAT HDD (GPT/MBR), SMB and APA Internal HDD
 * 🛠 Apply Cheats
 * 📺 Apply HDTVFIX patches
 * 📥 Download missing CFG / Metadata
 * 🖼 Download missing ART files
 * 📐 Apply Aspect Ratio patches where available
 * 🗂 Built-in APA HDD Transfer Tool
-* ➕ Create POPS Partition directly from the GUI
+* ➕ Create POPS partitions directly from the GUI
 * 🌐 SMB Driver Editor for IPCONFIG.DAT and SMBCONFIG.DAT
 * 🧹 Cleanup utility for working directories
 * ⚡ Modern graphical interface with batch conversion support
-* 🔄 Built-in automatic update system
+* 🔄 Built-in update system
 
 ---
 
 # Before You Begin
 
-## POPStarter Runtime Files
+## POPStarter PS2 Drivers
 
-For **FAT32 USB, MX4SIO, MMCE, exFAT HDD and SMB** installations, the following POPStarter runtime files are required:
+The application includes the required **POPStarter PS2 drivers** inside the `Resources` folder.
 
-```text
-POPSTARTER.ELF
-POPS_IOX.PAK
-```
+However, whether you need to install them depends on the method you are using.
 
-These files are **copyrighted and will NOT be provided with this application**.
+### FAT32 USB and APA Internal HDD
 
-You must obtain these files separately and place them inside the `POPS` folder on your target storage device.
+**FAT32 USB and APA Internal HDD users do NOT need to manually install the POPSTARTER folder to their memory card.**
 
-For example:
+The required files are handled differently for these methods.
 
-```text
-POPS
-├── POPSTARTER.ELF
-└── POPS_IOX.PAK
-```
+### Other Methods
 
-> **Important:** These runtime files are required for POPStarter to function correctly. They are not included with the application.
+For the following methods, the **POPSTARTER** folder needs to be installed to your PS2 memory card:
 
----
+* MX4SIO
+* MMCE
+* exFAT HDD (GPT/MBR)
+* SMB
 
-## APA Internal HDD Runtime Files
-
-APA Internal HDD installations use a different set of runtime files.
-
-The required files are:
-
-```text
-POPS.ELF
-POPS.PAK
-IOPRP_252.IMG
-```
-
-These files are **copyrighted and will NOT be provided with this application**.
-
-You must obtain these files separately before transferring the POPS runtime to your APA HDD.
-
----
-
-# POPStarter PS2 Drivers
-
-The application includes the **POPSTARTER PS2 driver files** required by certain installation methods.
-
-They can be found inside:
+The folder can be found inside:
 
 ```text
 Resources
 └── Popstarter PS2 Drivers
+    └── POPSTARTER
 ```
 
-Inside this folder, you will find the **POPSTARTER** folder.
-
-## Important
-
-The POPSTARTER PS2 drivers need to be manually installed to the PS2 memory card only when using:
-
-* exFAT USB
-* MX4SIO
-* MMCE
-* exFAT HDD
-* SMB
-
-**FAT32 USB and APA Internal HDD installations do not require you to manually install the POPSTARTER drivers to the memory card.**
-
-### Installation for MX4SIO, MMCE, exFAT HDD and SMB
+### Installation
 
 1. Copy the entire **POPSTARTER** folder to your USB flash drive or memory card.
 2. Launch **uLaunchELF** on your PlayStation 2.
-3. Copy the **POPSTARTER** folder to:
+3. Copy the `POPSTARTER` folder to:
 
 ```text
 mc0:/
@@ -110,30 +71,53 @@ The final location should be:
 mc0:/POPSTARTER/
 ```
 
-This only needs to be done **once for each memory card**.
+This only needs to be done once for each memory card.
 
-> **Note:** The POPSTARTER PS2 drivers are included with the application. The copyrighted POPStarter runtime files listed above are not included.
+> **Important:** FAT32 USB and APA Internal HDD users do not need to perform this memory-card installation step.
 
 ---
 
-# Resources Folder
+# Required Runtime Files
 
-The application is distributed with a **Resources** folder containing the tools and files required by the converter.
+The required POPStarter runtime files are **copyrighted and will NOT be provided with this application**.
 
-For new users, the recommended folder structure is:
+You must obtain them separately.
+
+## USB / MX4SIO / MMCE / exFAT HDD (GPT/MBR) / SMB
+
+For these methods, the required runtime files are:
 
 ```text
-OPL PS1 AIO Converter
-├── OPL_PS1_AIO_Converter_GUI.exe
-├── Updater.exe
-└── Resources
+POPSTARTER.ELF
+POPS_IOX.PAK
 ```
 
-The application automatically detects the included **Resources** folder.
+These files must be placed inside the `POPS` folder on your target storage device.
 
-**You do not need to manually select the Resources folder inside the application.**
+Example:
 
-> **Important:** Keep the `Resources` folder next to the converter EXE. Do not rename or remove it.
+```text
+POPS
+├── POPSTARTER.ELF
+├── POPS_IOX.PAK
+└── YourGame.VCD
+```
+
+---
+
+## APA Internal HDD
+
+APA Internal HDD installations use different runtime files:
+
+```text
+POPS.ELF
+POPS.PAK
+IOPRP_252.IMG
+```
+
+These files are required by the APA HDD installation and must be supplied separately.
+
+The application does **not** provide these copyrighted files.
 
 ---
 
@@ -153,7 +137,7 @@ The **Game Converter** converts PlayStation 1 backups into **POPStarter-compatib
 
 Browse to the folder containing your PlayStation 1 games.
 
-The converter automatically scans **all subfolders recursively**.
+The converter automatically scans all subfolders.
 
 ---
 
@@ -161,7 +145,7 @@ The converter automatically scans **all subfolders recursively**.
 
 Select where your converted **VCD** files should be saved.
 
-For **FAT32 USB, MX4SIO, MMCE, exFAT HDD and SMB**, you can select the `POPS` folder on your target device.
+For USB, MX4SIO, MMCE, exFAT HDD (GPT/MBR), and SMB installations, you can select the `POPS` folder on your target device.
 
 Example:
 
@@ -175,34 +159,7 @@ or:
 PS2SMB\POPS
 ```
 
-### APA Internal HDD
-
-For **APA Internal HDD**, do not select a folder on the HDD.
-
-Instead, create a temporary working folder anywhere on your PC.
-
-For example:
-
-```text
-D:\PS1_Conversion\
-└── POPS
-```
-
-Then select the **POPS folder inside that temporary folder** as your Output Folder.
-
-Your workflow should look like:
-
-```text
-D:\PS1_Conversion\
-└── POPS
-    ├── GAME1.VCD
-    ├── GAME2.VCD
-    └── GAME3.VCD
-```
-
-This temporary `POPS` folder will contain the converted VCD files that will later be transferred to your APA HDD using the **Transfer to HDD** tool.
-
-> **Important:** For APA installations, the Output Folder should be the temporary `POPS` folder you created on your PC, not the physical PS2 HDD.
+For **APA Internal HDD**, follow the dedicated APA instructions below.
 
 ---
 
@@ -240,38 +197,27 @@ Once completed, your VCD files are ready to install.
 
 ---
 
-# 💾 USB / MX4SIO / MMCE / exFAT HDD
+# 💾 USB / MX4SIO / MMCE / exFAT HDD (GPT/MBR)
 
-Use this tab when playing PS1 games from:
+Use this method when playing PS1 games from:
 
-* FAT32 USB Flash Drive
+* USB Flash Drive
 * MX4SIO
 * MMCE
-* exFAT External HDD
+* exFAT HDD (GPT/MBR)
 
 ---
 
-## Required Runtime Files
+## Required Files
 
-Copy the following copyrighted runtime files into the **POPS** folder on your storage device:
+Copy the following copyrighted runtime files into the `POPS` folder on your storage device:
 
 ```text
 POPSTARTER.ELF
 POPS_IOX.PAK
 ```
 
-These files are **not provided with this application**.
-
-Example:
-
-```text
-POPS
-├── POPSTARTER.ELF
-├── POPS_IOX.PAK
-└── GAME.VCD
-```
-
-> **Note:** FAT32 USB does not require the separate POPSTARTER PS2 driver installation to the memory card. MX4SIO, MMCE and exFAT HDD methods do require the POPSTARTER folder to be installed to `mc0:/POPSTARTER/`.
+These files are **not included** with the application.
 
 ---
 
@@ -295,7 +241,7 @@ THM
 VMC
 ```
 
-Do **not** select the POPS folder itself.
+Do **not** select the `POPS` folder itself.
 
 ---
 
@@ -320,7 +266,7 @@ Enable this option if you're using:
 
 ### Download CFG / Metadata
 
-Downloads available metadata files for supported games.
+Downloads available metadata files for supported PS1 games.
 
 ---
 
@@ -330,9 +276,9 @@ Applies available Aspect Ratio patches created by **Hugopocked**.
 
 ---
 
-## Run
+## Install
 
-Click **Run** to process and install your selected games.
+Click **Run**.
 
 Once complete:
 
@@ -345,11 +291,11 @@ Once complete:
 
 ## Download Missing ART / CFG
 
-The USB tab includes **ART/CFG buttons** that allow you to download missing artwork and CFG files.
+The **ART/CFG** buttons allow you to download missing artwork and CFG files after the initial installation.
 
-These are useful if some artwork or CFG files could not be downloaded during the initial installation because the download server was temporarily unavailable.
+This is useful if the download server was temporarily unavailable when you originally installed your games.
 
-You can return later and use the **ART/CFG buttons** to download the missing files once the server is available again.
+If some artwork or CFG files could not be downloaded, reconnect your storage device and use the corresponding **ART/CFG** button to download the missing files later.
 
 There is no need to reconvert or reinstall the games.
 
@@ -361,27 +307,16 @@ Use this tab when storing your PlayStation 1 games on an SMB network share.
 
 ---
 
-## Required Runtime Files
+## Required Files
 
-Copy the following copyrighted runtime files into your SMB **POPS** folder:
+Copy the following copyrighted runtime files into your SMB `POPS` folder:
 
 ```text
 POPSTARTER.ELF
 POPS_IOX.PAK
 ```
 
-These files are **not provided with this application**.
-
-Example:
-
-```text
-POPS
-├── POPSTARTER.ELF
-├── POPS_IOX.PAK
-└── GAME.VCD
-```
-
-> **Note:** SMB requires the POPSTARTER folder to be installed to `mc0:/POPSTARTER/` on your PS2 memory card.
+These files are **not included** with the application.
 
 ---
 
@@ -403,7 +338,7 @@ THM
 VMC
 ```
 
-Do **not** select the POPS folder itself.
+Do **not** select the `POPS` folder itself.
 
 ---
 
@@ -413,40 +348,21 @@ The SMB tab includes a built-in **Edit POPS SMB Drivers** button that allows you
 
 This tool edits two configuration files:
 
-* `IPCONFIG.DAT` – PS2 network settings
-* `SMBCONFIG.DAT` – SMB server settings
-
-### IPCONFIG.DAT
-
-Configure:
-
-* PS2 IP address
-* Netmask
-* Gateway
-
-### SMBCONFIG.DAT
-
-Configure:
-
-* PC/server IP address
-* SMB port
-* Share name
-* Username
-* Password
+* **IPCONFIG.DAT** – PS2 network settings
+* **SMBCONFIG.DAT** – SMB server settings
 
 ### How to Use
 
 1. Click **Edit POPS SMB Drivers**.
 2. A new window will open with two tabs:
 
-   * **IPCONFIG.DAT**
-   * **SMBCONFIG.DAT**
-3. Enter your network and SMB server information.
-4. Click **Restore Defaults** if you want to reset the fields.
-5. Click **Save** to write the configuration files.
-6. Follow the instructions shown by the application to deploy the POPSTARTER folder to your memory card.
+   * **IPCONFIG.DAT** – Enter your PS2's IP address, Netmask, and Gateway.
+   * **SMBCONFIG.DAT** – Enter your PC's IP address, SMB port, share name, username, and password.
+3. Click **Restore Defaults** to reset all fields to their default values.
+4. Click **Save** to write the changes to disk.
+5. Follow the instructions shown by the application to deploy the updated POPSTARTER files to your memory card.
 
-> **Note:** Leave the **SMB Port** field blank to use the default SMB port (`445`). Only specify a port if your SMB server uses a different port.
+> **Note:** Leave the SMB Port field blank to use the default SMB port (445). Only specify a port if your SMB server is configured to use a different port.
 
 ---
 
@@ -470,7 +386,7 @@ Recommended when using:
 
 ### Download CFG / Metadata
 
-Downloads available CFG and metadata files.
+Downloads available metadata files.
 
 ---
 
@@ -480,26 +396,26 @@ Applies available Aspect Ratio patches created by **Hugopocked**.
 
 ---
 
-## Run
+## Install
 
-Click **Run** to process and install your selected games.
+Click **Run**.
 
 After completion:
 
 1. Refresh your SMB share if necessary.
 2. Launch Open PS2 Loader.
 3. Enable the **APPS** page.
-4. Launch your PlayStation 1 games.
+4. Launch your PS1 games.
 
 ---
 
 ## Download Missing ART / CFG
 
-The SMB tab includes **ART/CFG buttons** that allow you to download missing artwork and CFG files.
+The **ART/CFG** buttons can be used to download missing artwork and CFG files after installation.
 
-If some files could not be downloaded during the initial installation because the download server was temporarily unavailable, you can return later and use the **ART/CFG buttons** to download the missing files.
+If the download server was unavailable during the initial installation, you can simply use the corresponding **ART/CFG** button later when the server becomes available.
 
-There is no need to reconvert or reinstall the games.
+There is no need to reconvert or reinstall your games.
 
 ---
 
@@ -507,7 +423,7 @@ There is no need to reconvert or reinstall the games.
 
 Use this tab if you want to install your PlayStation 1 games directly onto an **APA-formatted internal PS2 HDD**.
 
-Unlike USB and SMB, games are first converted into VCD files on your PC and then transferred to the HDD.
+Unlike USB, MX4SIO, MMCE, exFAT HDD (GPT/MBR), and SMB, games are first converted into VCD files on your PC and then transferred directly to the internal HDD.
 
 ---
 
@@ -534,7 +450,7 @@ Before transferring games, your HDD must contain at least one POPStarter partiti
 __.POPS0
 ```
 
-## Using the Built-in Create POPS Partition Tool
+### Using the Built-in Create POPS Partition Tool
 
 1. Click **Transfer to HDD** in the APA tab.
 2. Click **Connect** and select your PS2 HDD.
@@ -544,15 +460,13 @@ __.POPS0
 6. Click **Create**.
 7. The tool will create the partition and automatically format it as PFS.
 
-Once created, the partition will appear in the list and will be ready for transferring games.
-
-> **Note:** POPS partitions can be created up to **128 GB** per partition.
+Once created, the partition will appear in the list and is ready for transferring games.
 
 ---
 
 # Step 2 — Prepare the APA Runtime Files
 
-APA installations require the following copyrighted runtime files:
+APA installations require these copyrighted runtime files:
 
 ```text
 POPS.ELF
@@ -560,18 +474,16 @@ POPS.PAK
 IOPRP_252.IMG
 ```
 
-These files are **not provided with this application**.
-
-The application expects these files inside:
+Place these files inside:
 
 ```text
 Resources
 └── APA HDD Binaries
 ```
 
-The application automatically detects them from the included Resources folder.
+The application will automatically detect the Resources folder supplied with the program.
 
-> **Important:** These files must be obtained separately because they are copyrighted.
+> **Important:** These files are copyrighted and are **not included** with this application. They must be obtained separately.
 
 These files only need to be transferred once unless the POPS partition is recreated.
 
@@ -579,7 +491,7 @@ These files only need to be transferred once unless the POPS partition is recrea
 
 # Step 3 — Create a Temporary Working Folder
 
-For APA installations, create a temporary working folder anywhere on your PC.
+For APA installations, create a **temporary working folder** anywhere on your PC.
 
 Inside that folder, create a folder named:
 
@@ -594,7 +506,9 @@ D:\PS1_Conversion\
 └── POPS
 ```
 
-The `POPS` folder is where the converter will place your converted VCD files.
+The `POPS` folder is where the converted VCD files will temporarily be stored before they are transferred to the internal HDD.
+
+When using the **Game Converter** tab, select this temporary `POPS` folder as your **Output Folder**.
 
 ---
 
@@ -605,35 +519,17 @@ Open the **Game Converter** tab.
 Select:
 
 * **Source Folder** → Your BIN/CUE or ZIP backups
-* **Output Folder** → The temporary `POPS` folder you created in Step 3
+* **Output Folder** → The temporary `POPS` folder you created
 
-For example:
-
-```text
-D:\PS1_Conversion\POPS
-```
-
-You do **not** need to select the Resources folder. The application automatically detects it.
+The application automatically detects its included `Resources` folder, so you do **not** need to manually select it.
 
 Click:
 
 * **Scan for Games**
-* Select the games you want
+* Select the games you want to convert
 * **Convert Selected**
 
-Once finished, your temporary POPS folder will contain the converted VCD files.
-
-Example:
-
-```text
-D:\PS1_Conversion\
-└── POPS
-    ├── GAME1.VCD
-    ├── GAME2.VCD
-    └── GAME3.VCD
-```
-
-> **Important:** This is only a temporary working folder on your PC. The games will later be transferred from this folder to the APA HDD.
+Once finished, your temporary `POPS` folder will contain the converted VCD files.
 
 ---
 
@@ -650,8 +546,6 @@ Choose any desired options:
 
 Click **Run**.
 
-The application will prepare the games in your temporary POPS folder.
-
 ---
 
 # Step 6 — Transfer to the HDD
@@ -662,12 +556,12 @@ A new window will open.
 
 1. Select your PlayStation 2 HDD from the drop-down list.
 2. Click **Connect**.
-3. Click **Transfer Binaries** if required.
+3. Click **Transfer Binaries** if the APA runtime files have not already been installed.
 4. Click **Start Transfer**.
 
 The program will copy your converted games directly to the selected POPS partition.
 
-If the APA runtime files have already been installed, the application will indicate that they are already installed.
+If the required files have already been installed, the application will indicate that they are already installed.
 
 ---
 
@@ -681,7 +575,7 @@ Downloads missing cover artwork for games already installed on the HDD.
 
 ## Download Missing CFG
 
-Downloads missing CFG files for installed games.
+Downloads missing CFG files for games already installed on the HDD.
 
 ---
 
@@ -689,13 +583,13 @@ Downloads missing CFG files for installed games.
 
 Creates a new `__.POPS` partition on the HDD.
 
-The tool handles the required APA sub-partitioning and PFS formatting automatically.
+The tool automatically handles the required APA sub-partitioning and PFS formatting.
 
 ---
 
 ## Cleanup
 
-The **Cleanup** button clears the temporary working POPS directory, making it easy to prepare for your next batch of conversions.
+The **Cleanup** button clears the temporary working `POPS` directory, making it easy to prepare for your next batch of conversions.
 
 ---
 
@@ -712,39 +606,23 @@ Once the transfer is complete:
 
 ---
 
-# 🔄 Automatic Updates
+# 📥 Updating the Application
 
 The application includes a built-in update system.
 
-When a new version is released, the application can check the project's GitHub release page for a newer version.
+When a new version is released, the application can check the latest GitHub release and notify you when an update is available.
 
-If an update is available:
+If you choose to update, the updater will:
 
-1. The application will notify you that a newer version is available.
-2. You can choose whether to download it.
-3. The updater downloads the new application directly from the official GitHub release.
-4. The downloaded EXE is verified using its **SHA-256 checksum**.
-5. The current application is safely replaced.
-6. The newly installed version is verified again.
-7. The updated application is launched automatically.
+1. Download the new application.
+2. Verify the downloaded file using its SHA-256 checksum.
+3. Replace the existing application.
+4. Verify the installed file.
+5. Launch the updated version automatically.
 
-> **Note:** The automatic updater only replaces the main application EXE. Your `Resources` folder and other files are not removed or modified during a normal application update.
+Your `Resources` folder and other files are not replaced by the updater.
 
-For new users, download the latest complete release package, extract it, and run:
-
-```text
-OPL_PS1_AIO_Converter_GUI.exe
-```
-
-The complete package includes:
-
-```text
-OPL_PS1_AIO_Converter_GUI.exe
-Updater.exe
-Resources\
-```
-
-Keep these files together.
+> **Important:** Always keep the `Resources` folder in the same folder as the main application.
 
 ---
 
@@ -755,25 +633,15 @@ Keep these files together.
 * Existing VCD files will not be overwritten unless **Overwrite Existing VCD Files** is enabled.
 * The converter scans all subfolders recursively.
 * Always keep a backup of your original PlayStation 1 games.
-* APA POPS partitions up to **128 GB** can be created directly from the GUI.
+* APA partitions up to **128 GB** can be created directly from the GUI.
 * SMB network settings can be edited directly from the application using the built-in **Edit POPS SMB Drivers** tool.
-* For FAT32 USB, MX4SIO, MMCE, exFAT HDD and SMB, the required runtime files are `POPSTARTER.ELF` and `POPS_IOX.PAK`.
-* For APA Internal HDD, the required runtime files are `POPS.ELF`, `POPS.PAK` and `IOPRP_252.IMG`.
-* All copyrighted runtime files listed above are **NOT provided** with this application.
-* The `Resources` folder is automatically detected and should remain next to the converter EXE.
-* FAT32 USB and APA Internal HDD do not require manual POPSTARTER driver installation to the PS2 memory card.
-* MX4SIO, MMCE, exFAT HDD and SMB require the POPSTARTER folder to be installed to `mc0:/POPSTARTER/`.
-* The application and updater are designed for **Windows x64**.
+* Missing ART and CFG files can be downloaded later using the **ART/CFG** buttons.
+* The application automatically detects the included `Resources` folder.
+* Copyrighted POPStarter runtime files are **NOT provided** with this application.
 
 ---
 
 # ❤️ Credits
-
-## OPL PS1 AIO Converter GUI
-
-Created by **Eliminator14 (Pixel)**
-
----
 
 ## Special Thanks
 
@@ -795,8 +663,6 @@ A huge thank you to everyone in the PlayStation 2 homebrew community whose work,
 Without your contributions, projects like this would not have been possible.
 
 ---
-
-# 🎮 Enjoy!
 
 Enjoy your PlayStation 1 library on the PlayStation 2!
 
