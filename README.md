@@ -28,7 +28,7 @@ An all-in-one Windows application for preparing and installing **PlayStation 1 g
 
 ## POPStarter Runtime Files
 
-For **USB, MX4SIO, MMCE, exFAT HDD and SMB** installations, the following POPStarter runtime files are required:
+For **FAT32 USB, MX4SIO, MMCE, exFAT HDD and SMB** installations, the following POPStarter runtime files are required:
 
 ```text
 POPSTARTER.ELF
@@ -69,11 +69,11 @@ You must obtain these files separately before transferring the POPS runtime to y
 
 ---
 
-## POPStarter Drivers
+# POPStarter PS2 Drivers
 
-The required **POPSTARTER PS2 drivers** are included with this application.
+The application includes the **POPSTARTER PS2 driver files** required by certain installation methods.
 
-They can be found inside the included:
+They can be found inside:
 
 ```text
 Resources
@@ -82,7 +82,19 @@ Resources
 
 Inside this folder, you will find the **POPSTARTER** folder.
 
-### Installation
+## Important
+
+The POPSTARTER PS2 drivers need to be manually installed to the PS2 memory card only when using:
+
+* exFAT USB
+* MX4SIO
+* MMCE
+* exFAT HDD
+* SMB
+
+**FAT32 USB and APA Internal HDD installations do not require you to manually install the POPSTARTER drivers to the memory card.**
+
+### Installation for MX4SIO, MMCE, exFAT HDD and SMB
 
 1. Copy the entire **POPSTARTER** folder to your USB flash drive or memory card.
 2. Launch **uLaunchELF** on your PlayStation 2.
@@ -100,7 +112,7 @@ mc0:/POPSTARTER/
 
 This only needs to be done **once for each memory card**.
 
-> **Note:** These drivers are included with the application, while the copyrighted POPStarter runtime files listed above are not.
+> **Note:** The POPSTARTER PS2 drivers are included with the application. The copyrighted POPStarter runtime files listed above are not included.
 
 ---
 
@@ -149,7 +161,7 @@ The converter automatically scans **all subfolders recursively**.
 
 Select where your converted **VCD** files should be saved.
 
-For **USB, MX4SIO, MMCE, exFAT HDD and SMB**, you can select the `POPS` folder on your target device.
+For **FAT32 USB, MX4SIO, MMCE, exFAT HDD and SMB**, you can select the `POPS` folder on your target device.
 
 Example:
 
@@ -163,9 +175,11 @@ or:
 PS2SMB\POPS
 ```
 
-For **APA Internal HDD**, do **not** select a folder on the HDD.
+### APA Internal HDD
 
-Instead, create a temporary working folder on your PC.
+For **APA Internal HDD**, do not select a folder on the HDD.
+
+Instead, create a temporary working folder anywhere on your PC.
 
 For example:
 
@@ -176,7 +190,7 @@ D:\PS1_Conversion\
 
 Then select the **POPS folder inside that temporary folder** as your Output Folder.
 
-Your workflow should therefore look like:
+Your workflow should look like:
 
 ```text
 D:\PS1_Conversion\
@@ -230,7 +244,7 @@ Once completed, your VCD files are ready to install.
 
 Use this tab when playing PS1 games from:
 
-* USB Flash Drive
+* FAT32 USB Flash Drive
 * MX4SIO
 * MMCE
 * exFAT External HDD
@@ -256,6 +270,8 @@ POPS
 ├── POPS_IOX.PAK
 └── GAME.VCD
 ```
+
+> **Note:** FAT32 USB does not require the separate POPSTARTER PS2 driver installation to the memory card. MX4SIO, MMCE and exFAT HDD methods do require the POPSTARTER folder to be installed to `mc0:/POPSTARTER/`.
 
 ---
 
@@ -327,19 +343,15 @@ Once complete:
 
 ---
 
-## ⬇️ Download Missing ART / CFG
+## Download Missing ART / CFG
 
-The USB tab includes **down-arrow buttons** for downloading missing artwork and CFG files.
+The USB tab includes **ART/CFG buttons** that allow you to download missing artwork and CFG files.
 
-These buttons are especially useful if the artwork or CFG server is temporarily unavailable when you initially install your games.
+These are useful if some artwork or CFG files could not be downloaded during the initial installation because the download server was temporarily unavailable.
 
-If some artwork or CFG files could not be downloaded:
+You can return later and use the **ART/CFG buttons** to download the missing files once the server is available again.
 
-1. Complete your installation normally.
-2. Later, when the server is available again, reconnect your storage device to your PC.
-3. Use the corresponding **download arrow button** to download the missing files.
-
-This allows you to download missing artwork or CFG files at a later time without having to reinstall or reconvert your games.
+There is no need to reconvert or reinstall the games.
 
 ---
 
@@ -368,6 +380,8 @@ POPS
 ├── POPS_IOX.PAK
 └── GAME.VCD
 ```
+
+> **Note:** SMB requires the POPSTARTER folder to be installed to `mc0:/POPSTARTER/` on your PS2 memory card.
 
 ---
 
@@ -479,13 +493,11 @@ After completion:
 
 ---
 
-## ⬇️ Download Missing ART / CFG
+## Download Missing ART / CFG
 
-The SMB tab also includes **down-arrow buttons** for downloading missing artwork and CFG files.
+The SMB tab includes **ART/CFG buttons** that allow you to download missing artwork and CFG files.
 
-If some files could not be downloaded during the initial installation because the download server was unavailable, you can download them later.
-
-Simply reconnect to your SMB share when the server is available and use the corresponding **download arrow button** to retrieve the missing files.
+If some files could not be downloaded during the initial installation because the download server was temporarily unavailable, you can return later and use the **ART/CFG buttons** to download the missing files.
 
 There is no need to reconvert or reinstall the games.
 
@@ -550,14 +562,14 @@ IOPRP_252.IMG
 
 These files are **not provided with this application**.
 
-Place the files into:
+The application expects these files inside:
 
 ```text
 Resources
 └── APA HDD Binaries
 ```
 
-The application will automatically detect them from the included Resources folder.
+The application automatically detects them from the included Resources folder.
 
 > **Important:** These files must be obtained separately because they are copyrighted.
 
@@ -745,10 +757,12 @@ Keep these files together.
 * Always keep a backup of your original PlayStation 1 games.
 * APA POPS partitions up to **128 GB** can be created directly from the GUI.
 * SMB network settings can be edited directly from the application using the built-in **Edit POPS SMB Drivers** tool.
-* For USB, MX4SIO, MMCE, exFAT HDD and SMB, the required runtime files are `POPSTARTER.ELF` and `POPS_IOX.PAK`.
+* For FAT32 USB, MX4SIO, MMCE, exFAT HDD and SMB, the required runtime files are `POPSTARTER.ELF` and `POPS_IOX.PAK`.
 * For APA Internal HDD, the required runtime files are `POPS.ELF`, `POPS.PAK` and `IOPRP_252.IMG`.
 * All copyrighted runtime files listed above are **NOT provided** with this application.
 * The `Resources` folder is automatically detected and should remain next to the converter EXE.
+* FAT32 USB and APA Internal HDD do not require manual POPSTARTER driver installation to the PS2 memory card.
+* MX4SIO, MMCE, exFAT HDD and SMB require the POPSTARTER folder to be installed to `mc0:/POPSTARTER/`.
 * The application and updater are designed for **Windows x64**.
 
 ---
